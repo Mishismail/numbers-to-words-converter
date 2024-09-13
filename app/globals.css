@@ -2,26 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global custom styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  height: 100%;
+  /* Consider changing this to allow scrolling when necessary */
+  overflow-y: auto; /* Prevents scrolling only when necessary */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* You may want to adjust these depending on what needs centering */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+body.dark {
+  background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: #0070f3;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #005bb5;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Optional - improve button spacing or other elements' layout on smaller screens */
+@media (max-width: 640px) {
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
   }
 }
